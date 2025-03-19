@@ -6,7 +6,7 @@ const questions = [
         options: ["(A) $15.12", "(B) $15.15", "(C) $15.18", "(D) $15.21", "(E) $15.24"],
         correct: 4,
         hint: "Calculate the total cost of Joe and David's meals. Do NOT forget to add the tax to the total.",
-        hintAudio: "ericlin-english1-genius/HintAudios/HintMusic01.mp3",
+        hintAudio: "HintAudios/HintMusic01.mp3",
         solution: "(E) <eq>$15.24</eq>\n\nTotal cost before tax <eq>= $15.95 x 2 + $2.25 x 2 + $4.95 = $41.35</eq>\n\nTotal cost including tax = <eq>$41.35 x (1 + 8.25%) = $44.76</eq>\n\n Tip = <eq>$20.00 x 3 - $44.76 = $15.24</eq>",
         solutionVideo: "SolutionVideos/SolutionVideo01.mp4",
         quote: "MotivationQuotes/Quote01.jpg"
