@@ -6,50 +6,50 @@ const questions = [
         options: ["(A) $15.12", "(B) $15.15", "(C) $15.18", "(D) $15.21", "(E) $15.24"],
         correct: 4,
         hint: "Calculate the total cost of Joe and David's meals. Do NOT forget to add the tax to the total.",
-        hintAudio: "/HintAudios/HintMusic01.mp3",
+        hintAudio: "HintAudios/HintMusic01.mp3",
         solution: "(E) <eq>$15.24</eq>\n\nTotal cost before tax <eq>= $15.95 x 2 + $2.25 x 2 + $4.95 = $41.35</eq>\n\nTotal cost including tax = <eq>$41.35 x (1 + 8.25%) = $44.76</eq>\n\n Tip = <eq>$20.00 x 3 - $44.76 = $15.24</eq>",
-        solutionVideo: "/SolutionVideos/SolutionVideo01.mp4",
-        quote: "/MotivationQuotes/Quote01.jpg"
+        solutionVideo: "SolutionVideos/SolutionVideo01.mp4",
+        quote: "MotivationQuotes/Quote01.jpg"
     },
     { //Q02
         question: "An adult ticket to an Idaho Falls game cost $10.00 and a youth ticket cost $6.00. On Tuesday night’s game, they sold 396 tickets and grossed $3,224. How many adult tickets did they sell?",
         options: ["(A) 208", "(B) 210", "(C) 212", "(D) 214", "(E) 216"],
         correct: 2,
         hint: "Set up 2 equations with 2 unknowns for numbers of tickets sold, one for adult and the other for youth.",
-        hintAudio: "/HintAudios/HintMusic02.mp3",
+        hintAudio: "HintAudios/HintMusic02.mp3",
         solution: "(C) 212\n\nAssume number of tickets sold is <eq>x</eq> for adult and <eq>y</eq> for youth.\n\nTwo equations: <eq>x + y = 396 & 10x + 6y = 3224</eq>\n\nSolutions: <eq>x = 212 & y = 184</eq>",
-        solutionVideo: "/SolutionVideos/SolutionVideo02.mp4",
-        quote: "/MotivationQuotes/Quote02.jpg"
+        solutionVideo: "SolutionVideos/SolutionVideo02.mp4",
+        quote: "MotivationQuotes/Quote02.jpg"
     },
     { //Q03
         question: "Justin can wash and wax 10 cars in 4 hours. Aryan can wash and wax 20 cars in 6 hours. Justin started work at 8:00 AM. Aryan arrived at 10:00 AM and they both worked from 10:00 AM until a total of 30 cars had been washed and waxed. What time was it when they finished if they took no breaks? (nearest minute)",
         options: ["(A) 2:17 PM", "(B) 2:20 PM", "(C) 2:23 PM", "(D) 2:26 PM", "(E) 2:29 PM"],
         correct: 0,
         hint: "Notice that Aryan started two hours later than Justin.",
-        hintAudio: "/HintAudios/HintMusic03.mp3",
+        hintAudio: "HintAudios/HintMusic03.mp3",
         solution: "(A) 2:17PM\n\nAssume they finish in <eq>x</eq> hours after 10:00AM.\n\n <eq><span class='fraction-line'><span class='numerator'>5</span><span class='denominator'>2</span></span>(x+2) + <span class='fraction-line'><span class='numerator'>10</span><span class='denominator'>3</span></span>(x) = 30</eq>\n\nSolve for <eq>x = 4 <span class='fraction-line'><span class='numerator'>2</span><span class='denominator'>7</span></span></eq> hours\n\nThey finished at 2:17PM.",
-        solutionVideo: "/SolutionVideos/SolutionVideo03.mp4",
-        quote: "/MotivationQuotes/Quote03.jpg"
+        solutionVideo: "SolutionVideos/SolutionVideo03.mp4",
+        quote: "MotivationQuotes/Quote03.jpg"
     },
     { //Q04
         question: "The <eq>5<sup>th</sup></eq> term of an arithmetic sequence is 23 and the <eq>13<sup>th</sup></eq> term is 55. Find the sum of the first 15 terms of the sequence. (nearest tenth)",
         options: ["(A) 513", "(B) 517", "(C) 521", "(D) 525", "(E) 529"],
         correct: 3,
         hint: "Need to find the first term (<eq>a<sub>1</sub></eq>) and common difference (<eq>d</eq>) of the arithmetic sequence first.",
-        hintAudio: "/HintAudios/HintMusic04.mp3",
+        hintAudio: "HintAudios/HintMusic04.mp3",
         solution: "(D) <eq>525</eq>\n\n<eq>a<sub>1</sub> + 4d = 23  &  a<sub>1</sub> + 12d = 55</eq>\n\nSolve for <eq>a<sub>1</sub> = 7  &  d = 4</eq>\n\nThe 15<sup>th</sup> term in the sequence: <eq>a<sub>15</sub> = a<sub>1</sub> + 14d = 63</eq>\n\nSum of the first 15<sup>th</sup> terms: <eq>S<sub>15</sub> = <span class='fraction-line'><span class='numerator'>15 (a<sub>1</sub> + a<sub>15</sub>)</span><span class='denominator'>2</span></span> = 525</eq>",
-        solutionVideo: "/SolutionVideos/SolutionVideo04.mp4",
-        quote: "/MotivationQuotes/Quote04.jpg"
+        solutionVideo: "SolutionVideos/SolutionVideo04.mp4",
+        quote: "MotivationQuotes/Quote04.jpg"
     },
     { //Q05
         question: "Amarillo Slim is playing a 5-card poker game with a well shuffled, standard 52-card deck. What is the probability that he will be dealt a full house? An example of a full house is 3 jacks and 2 queens. (nearest hundred-thousandth)",
         options: ["(A) 0.00111", "(B) 0.00122", "(C) 0.00133", "(D) 0.00144", "(E) 0.00155"],
         correct: 3,
         hint: "Probability is equal to conditional counting over total counting.\n\nDoes the order in which you pick the cards matter?",
-        hintAudio: "/HintAudios/HintMusic05.mp3",
+        hintAudio: "HintAudios/HintMusic05.mp3",
         solution: "(D) <eq>0.00144</eq>\n\n<eq>Conditional Counts = (13 <span class='fraction-line'><span class='numerator'>4!</span><span class='denominator'>3!</span></span>) x (12 <span class='fraction-line'><span class='numerator'>4!</span><span class='denominator'>2! 2!</span></span>)</eq>\n\n<eq>Total Counts = <span class='fraction-line'><span class='numerator'>52!</span><span class='denominator'>47! 5!</span></span></eq>\n\n<eq>Probability = <span class='fraction-line'><span class='numerator'>Conditional Counts</span><span class='denominator'>Total Counts</span></span> = 0.00144</eq>",
-        solutionVideo: "/SolutionVideos/SolutionVideo05.mp4",
-        quote: "/MotivationQuotes/Quote05.jpg"
+        solutionVideo: "SolutionVideos/SolutionVideo05.mp4",
+        quote: "MotivationQuotes/Quote05.jpg"
     },
 ];
 
