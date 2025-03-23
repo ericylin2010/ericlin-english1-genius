@@ -1,0 +1,679 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* styles for the Body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(245, 240, 148);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('misc/background.jpg');
+    background-repeat: repeat;
+    background-size: auto;
+    padding: 20px;
+    position: relative;
+}
+.container {
+    width: 800px;
+    background: rgb(177, 224, 243);
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.8);
+    padding: 10px 20px 20px 20px;
+}
+
+.quiz-box {
+    padding: 10px;
+}
+
+.start-screen {
+    text-align: center;
+}
+.start-screen h1 {
+    margin-bottom: 30px;
+    color: rgb(15, 138, 15);
+    font-size: 3em;
+    text-shadow: 
+        1px 1px 0 rgb(255, 255, 255),
+        2px 2px 0 rgb(225, 225, 225),
+        3px 3px 0 rgb(195, 195, 195),
+        4px 4px 0 rgb(165, 165, 165),
+        5px 5px 0 rgb(135, 135, 135);
+    transform: perspective(400px) rotateX(20deg); /* 3D tilt */
+    transition: transform 0.5s ease; /* smooth hover effect */    
+}
+.start-screen h1:hover {
+    transform: perspective(400px) rotateX(0deg); /* flatten on hover */
+}
+.start-screen p {
+    margin-bottom: 30px;
+    color:rgb(15, 85, 15);
+    font-size: large;
+    text-align: center;
+}
+#start-btn {
+    font-size: large;
+}
+
+/* styles for question statement box */
+.question-box {
+    background: rgb(208, 234, 241);
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.8);
+    min-height: 180px; /* ensure enough space for question number and statement */
+    display: flex;
+    flex-direction: column;
+    justify-content: top; /* align center vertically */
+    font-size: large;
+}
+
+/* styles for Option box and buttons */
+.options-box {
+    display: grid;
+    gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.option-btn {
+    padding: 15px;
+    background: rgb(10, 100, 140);
+    border-radius: 15px;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 0 10px rgba(5, 50, 70, 1);
+    font-size: large;
+}
+.option-btn:hover {
+    background: rgb(5, 50, 70);
+}
+.option-btn:disabled {
+    background: rgb(5, 103, 108);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+.option-btn.correct {
+    background: rgb(144, 238, 144);
+    border-color: rgb(0, 100, 0);
+}
+.option-btn.wrong {
+    background: rgb(255, 153, 153);
+    border-color: rgb(139, 0, 0);
+}
+
+/* general styles for controls, buttons */
+.controls {
+    display: flex;
+    gap: 35px;
+    justify-content: center;
+}
+button {
+    padding: 10px 20px;
+    background: rgb(76, 175, 80);
+    color: rgb(255, 254, 254);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-size: medium;
+    min-width: 80px;
+}
+button:hover {
+    background: rgb(7, 74, 10);
+}
+
+/* styles for Start button */
+#start-btn {
+    box-shadow: 0 0 10px rgba(4, 83, 81, 0.8);
+}
+
+/* styles for Back button */
+#back-btn {
+    background: rgb(33, 150, 243);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(4, 83, 81, 0.8);
+}
+#back-btn:hover {
+    background: rgb(5, 67, 129);
+}
+#back-btn:disabled {
+    background: rgb(153, 153, 153);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* styles for Next button */
+#next-btn {
+    background: rgb(33, 150, 243);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(4, 83, 81, 0.8);
+}
+#next-btn:hover {
+    background: rgb(5, 67, 129);
+}
+#next-btn:disabled {
+    background: rgb(153, 153, 153);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* styles for Hint button */
+#hint-btn {
+    background: rgb(76, 175, 80);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(4, 83, 81, 0.8);
+}
+#hint-btn:hover {
+    background: rgb(3, 78, 48);
+}
+#hint-btn:disabled {
+    background: rgb(153, 153, 153);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+
+/* styles for Solution button */
+#solution-btn {
+    background: rgb(76, 175, 80);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(4, 83, 81, 0.8);
+}
+#solution-btn:hover {
+    background: rgb(3, 78, 48);
+}
+#solution-btn:disabled {
+    background: rgb(153, 153, 153);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+
+/* styles for Submit button */
+#submit-btn {
+    background: rgb(4, 113, 152);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(1, 65, 62, 0.8);
+}
+#submit-btn:hover {
+    background: rgb(1, 90, 85);
+}
+#submit-btn:disabled {
+    background: rgb(120, 121, 121);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* styles for Feedback box */
+.feedback {
+    margin-top: 10px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    transition: opacity 0.3s ease;
+    min-height: 40px;
+    background: rgb(177, 224, 243);
+}
+
+
+/* styles for Hint pop-up */
+.hint-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000px;
+    justify-content: center;
+    align-items: center;
+    min-width: 300;
+    min-height: 500;
+}
+.hint-content {
+    background: rgb(135, 206, 235); /* same hint color */
+    padding: 20px;
+    border-radius: 10px;
+    width: 550px;
+    height: auto;
+    transform: perspective(500px) rotateX(10deg); /* 3D effect */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* 3D shadow */
+    transition: transform 0.3s ease; /* smooth animation */
+    position: relative;
+    min-height: 120px;
+    display: flex; /* flexbox for layout */
+    justify-content: space-between; /* left and right alignment */
+    flex-direction: column;
+    align-items: flex-start; /* align text to the left */
+}
+.hint-popup.active .hint-content{
+    animation: popIn 0.6s ease forwards;
+}
+.hint-content:hover {
+    transform: perspective(500px) rotateX(0deg); /* flatten on hover */
+}
+#hint-text {
+    margin: 0 0 40px 0; /* remove default margin */
+    color: rgb(51, 51, 51);
+    text-align: left; /* left-align text */
+    width: 100%; /* ensure text takes full width */
+    flex-grow: 1; /* take available space */
+}
+#hint-audio {
+    display: none; /* hidden since a custom button is used */
+}
+.audio-toggle {
+    background: rgb(83, 193, 87);
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgb(18, 43, 19);
+    position: absolute;
+    bottom: 15px;
+    right: 100px;
+    min-width: 160px;
+}
+.audio-toggle:hover {
+    background: rgb(23, 52, 24);
+}
+#close-hint {
+    background: rgb(255, 68, 68);
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    min-width: 70px;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(84, 2, 2, 0.8);
+}
+#close-hint:hover {
+    background: rgb(99, 0, 0);
+}
+
+/* styles for Pop in animation */
+@keyframes popIn {
+    0% {
+        transform: perspective(500px) scale(0) rotateX(30deg);
+        opacity: 0;
+    }
+    100% {
+        transform: perspective(500px) scale(1) rotateX(0deg);
+        opacity: 1;
+    }
+}
+
+
+/* styles for Solution pop-up */
+.solution-popup {
+    display: none;
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:rgba(0, 0, 0, 0.5);
+    z-index: 1000px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(50, 50, 50, 0.6);
+}
+.solution-content {
+    background:rgb(184, 238, 200);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+    width: 500px;
+    height: auto;
+    box-shadow: 0 10px 25px rgba(50, 50, 50, 0.6);
+    transition: transform 0.3s ease;
+    position: relative;
+    min-height: 250px;
+    min-width: 550px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    white-space: pre-wrap;
+}
+.solution-popup.active .solution-content{
+    animation: popIn 0.6s ease forwards;
+}
+.solution-content:hover {
+    transform: perspective(500px) rotateX(0deg);
+}
+#solution-text {
+    margin: 0 0 40px 0;
+    color: rgb(3, 3, 3);
+    text-align: left;
+    width: 100%;
+    font-size: medium;
+}
+#solution-video {
+    display: none;
+}
+.video-toggle {
+    background: rgb(76, 175, 80);
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 8px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 18px;
+    right: 110px;
+    box-shadow: 0 0 10px rgba(32, 75, 33, 0.8);
+    min-width: 70px;
+}
+.video-toggle:hover {
+    background: rgb(40, 90, 42);
+}
+#close-solution {
+    background: rgb(255, 68, 68);
+    position: absolute;
+    bottom: 18px;
+    right: 18px;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(84, 2, 2, 0.8);
+    min-width: 70px;
+}
+#close-solution:hover {
+    background: rgb(109, 1, 1);
+}
+
+/* Solution video pop-up */
+.video-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:rgba(0, 0, 0, 0.2);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    box-shadow: 0 10px 25px rgba(50, 50, 50, 0.6);
+}
+.video-content {
+    background: rgb(238, 246, 215);
+    padding: 20px;
+    border-radius: 15px;
+    min-width: 1100px;
+    max-width: 1100px;
+    min-height: 740px;
+    max-height: 740px;
+    transition: transform 0.6s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 10px 25px rgba(50, 50, 50, 0.6);
+}
+.video-popup.active .video-content{
+    animation: popIn 0.6s ease forwards;
+}
+.video-content:hover {
+    transform: perspective(700px) rotateX(0deg);
+}
+
+#video-player {
+    min-width: 1040px;
+    max-width: 1040px;
+    min-height: 650px;
+    max-height: 650px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    object-fit: contain;
+    box-shadow: 0 10px 25px rgba(50, 50, 50, 0.6);
+
+}
+.video-control {
+    background: rgb(76, 175, 80);
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+.video-control:hover {
+    background: rgb(69, 160, 73);
+}
+#close-video {
+    background: rgb(255, 68, 68);
+    position: absolute;
+    bottom: 15px;
+    right: 500px;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(84, 2, 2, 0.8);
+    min-width: 70px;
+}
+#close-video:hover {
+    background: rgb(90, 0, 0);
+}
+#video-patch {
+    background: rgb(208, 234, 241);
+    position: absolute;
+    top: 60px;
+    left: 127px;
+    width: 250px;
+    height: 18px;
+}
+
+/* Quote pop-up */
+.quote-toggle {
+    background: rgb(76, 109, 175);
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 8px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 18px;
+    right: 200px;
+    box-shadow: 0 0 10px rgba(32, 75, 33, 0.8);
+    min-width: 70px;
+}
+.quote-toggle:hover {
+    background: rgb(40, 27, 62);
+}
+.quote-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:rgba(0, 0, 0, 0.2);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    box-shadow: 0 10px 25px rgba(50, 50, 50, 0.6);
+}
+.quote-content {
+    background: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 800px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(50, 50, 50, 0.6);
+}
+.quote-popup.active .quote-content{
+    animation: popIn 0.6s ease forwards;
+}
+#quote-image {
+    width: 100%;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 25px rgba(50, 50, 50, 0.6);
+}
+#quote-audio {
+   display: none; /* hidden since a custom button is used */
+}
+#close-quote {
+    background: rgb(255, 68, 68);
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    min-width: 70px;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(84, 2, 2, 0.8);
+}
+#close-quote:hover {
+    background: rgb(204, 0, 0);
+}
+
+/* Score pop-up */
+.score-popup {
+    display: none;
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:rgba(0, 0, 0, 0.5);
+    z-index: 1000px;
+    justify-content: center;
+    align-items: center;
+}
+.score-content {
+    background:rgb(168, 233, 246);
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    width: auto;
+    height: auto;
+    box-shadow: 0 10px 20px rgba(30, 1, 107, 0.2);
+    transition: transform 0.3s ease;
+}
+.score-popup.active.score-content{
+    animation: popIn 0.6s ease forwards;
+}
+
+.score-content:hover {
+    transform: perspective(500px) rotateX(0deg); /* flatten on hover */
+}
+#score-text {
+    margin-bottom: 15px;
+    color: rgb(18, 5, 99);
+}
+#close-score {
+    background: rgb(246, 45, 45);
+    box-shadow: 0 0 10px rgba(23, 22, 22, 0.5);
+}
+#close-score:hover {
+    background: rgb(109, 7, 7);
+}
+
+
+/* Styles for math equations and symbols */
+
+/* superscript and subscript */
+sup {
+    font-size: 0.8em;
+    vertical-align: super;
+}
+sub {
+    font-size: 0.8em;
+    vertical-align: sub;
+}
+
+/* fraction style */
+.fraction-line {
+    display: inline-block;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    vertical-align: middle;
+    line-height: 1; /* tighten spacing */
+    margin: 0 2px; /* small spacing around fraction */
+}
+.fraction-line .numerator {
+    display: block;
+    padding-bottom: 2px;
+    border-bottom: 1px solid black; /* horizontal line */
+}
+.fraction-line .denominator {
+    display: block;
+    padding-top: 2px;
+}
+
+/* Large, bold, underlined, and italic font */
+b {
+    font-size: large;
+    font-weight: bold;
+    text-decoration: underline;
+    font-style: italic;
+    color: #000;
+}
+
+/* Style for math equation */
+eq {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: larger;
+    /* font-style: italic; */
+}
+
+/* square root symbol */
+.radical {
+    display: inline-block;
+    position: relative;
+    font-family: 'Times New Roman', Times, serif;
+    vertical-align: middle;
+    margin: 0 2px;
+}
+.radical::before {
+    content: "√";
+    position: absolute;
+    top: 1px;
+    left: -14px;
+    font-size: 1.3em;
+}
+.radical .expression{
+    display: inline-block;
+    border-top: 1px solid black;
+    padding: 0px 3px 0 2px; /* space for √ and alignment */
+}
+
+
+
+/* style for backgroud music play/mute button */
+#background-music {
+    display: none;
+}
+#music-toggle-btn {
+    background: rgb(255, 152, 0);
+    box-shadow: 0 0 10px rgba(63, 55, 2, 0.8);
+
+}
+#music-toggle-btn:hover {
+    background: rgb(114, 58, 1);
+}
